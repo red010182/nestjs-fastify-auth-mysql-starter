@@ -9,7 +9,9 @@ async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter(), {
     logger: process.env.NODE_ENV === 'production' ? ['error'] : ['debug'],
   })
-  // await app.register(helmet)
+
+  // should be: await app.register(helmet), but found issue: https://github.com/nestjs/nest/issues/5195
+  app.getHttpAdapter().getInstance().register(helmet)
 
   // TODO: validation i18n
   app.useGlobalPipes(
