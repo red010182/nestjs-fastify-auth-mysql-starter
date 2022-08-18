@@ -1,0 +1,8 @@
+// https://stackoverflow.com/questions/60718493/difference-between-codeactionsonsave-and-formatonsave-in-vs-code
+{
+  "prettier.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": false
+}
